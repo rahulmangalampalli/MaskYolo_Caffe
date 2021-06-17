@@ -10,5 +10,5 @@ max_iter: 40000
 momentum: 0.9
 weight_decay: 0.0001
 snapshot: 1000
-snapshot_prefix: "/content/snapshot/"
+snapshot_prefix: "/content/snapshot/mb_body_mask_step1"
 solver_mode: GPU
