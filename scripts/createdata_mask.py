@@ -63,11 +63,8 @@ def run(coco_dir, lmdb_dir):
     txn = env.begin(write=True)
     writeCount = 0
 
-    dataTypes=['train', 'val']
-    years=['2014', '2017']
-
-    dataTypes=['val']
-    years=[ '2017']
+    dataTypes=['output']
+    years=['2021']
 
     dataDir = coco_dir
 
@@ -77,7 +74,7 @@ def run(coco_dir, lmdb_dir):
 
             imageSet = dataType + year
 
-            ann_path = '{}/annotations/instances_{}.json'.format(dataDir, imageSet)
+            ann_path = '{}/{}.json'.format(dataDir, imageSet)
             coco = COCO(ann_path)
 
             # display COCO categories and supercategories
@@ -102,8 +99,7 @@ def run(coco_dir, lmdb_dir):
                     #  break
                     count_id = count_id+1
                     img = coco.loadImgs(imgId)[0]
-
-                    img_path = '%s/data/%s/%s' %(dataDir, imageSet, img['file_name'])
+                    img_path = '/content/diamond/train/%s' %(img['file_name'])
                     # print img_path
 
                     # load and display instance annotations
